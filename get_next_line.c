@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:49:32 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 12:54:11 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 13:15:23 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,33 @@ char	*get_next_line(int fd)
 	}
 	ft_free_str(&str);
 	return (ft_extract_clear(&stash));
+}
+int    main(void)
+{
+    char    *content;
+    int fd = open("cat.txt", O_RDONLY);
+    
+    // content = get_next_line(fd);
+    // while (ft_strlen(content))
+    // {
+    //     printf("%s", content);
+    //     free(content);
+    //     content = get_next_line(fd);
+    // }
+    // free(content);
+    
+    while(1)
+    {
+        content = get_next_line(fd);
+        if(!content)
+        {
+            break;
+        }
+        printf("%s", content);
+        free(content);
+    }
+    if (content)
+        free(content);
+    close(fd);
+    return (0);
 }
