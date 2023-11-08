@@ -6,18 +6,28 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:10:08 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 12:53:01 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 18:36:48 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	ft_strlen_gnl(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 int	ft_strchr_gnl(char *s, int c)
 {
 	int		i;
 
 	i = -1;
-	if (!c)
+	if (!s)
 		return (0);
 	while (s[++i])
 		if (s[i] == c)
@@ -29,20 +39,24 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*str;
 	int		i;
-	int		j;
+	int		len;
 
-	i = ft_strlen_gnl(s1);
-	j = ft_strlen_gnl(s2);
-	str = malloc(sizeof (char) * (i + j + 1));
+	len = ft_strlen_gnl(s2);
+	if (!s1)
+		return (ft_strndup_gnl(s2, len));
+	len = len + ft_strlen_gnl(s1);
+	str = malloc(sizeof (char) * (len + 1));
 	if (!str)
-		return (NULL);
-	i = -1;
-	while (s1[++i])
-		str[i] = s1[i];
-	j = -1;
-	while (s2[++j])
-		str[i + j] = s2[j];
-	str[i + j] = '\0';
+		return (free(s1), (char *) NULL);
+	i = 0;
+	len = 0;
+	while (s1[i])
+		str[len++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		str[len++] = s2[i++];
+	str[len] = 0;
+	free(s1);
 	return (str);
 }
 
@@ -52,21 +66,13 @@ char	*ft_strndup_gnl(char *s1, int l)
 	int		i;
 
 	i = -1;
+	if (!s1 || !l)
+		return (NULL);
 	str = malloc(sizeof(char) * (l + 1));
 	if (!str)
 		return (NULL);
-	while (s1[++i] && i < l)
+	while (++i < l)
 		str[i] = s1[i];
-	str[i] = '\0';
+	str[i] = 0;
 	return (str);
-}
-
-int	ft_strlen_gnl(char *str)
-{
-	int	i;
-
-	i = -1;
-	while (str[++i])
-		;
-	return (i);
 }

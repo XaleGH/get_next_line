@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:49:32 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 13:15:23 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 18:36:46 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ char	*ft_extract_clear(char **stash)
 	char	*temp;
 	int		i;
 
-	i = -1;
+	i = 0;
 	temp = *stash;
-	while (temp[++i] && temp[i] != '\n')
-		;
+	if (!*stash)
+		return (NULL);
+	while (temp[i] && temp[i] != '\n')
+		i++;
+	if (temp[i] == '\n')
+		i++;
 	new = ft_strndup_gnl(temp, i);
 	*stash = ft_strndup_gnl(temp + i, ft_strlen_gnl(temp + i));
 	free(temp);
@@ -30,16 +34,15 @@ char	*ft_extract_clear(char **stash)
 
 char	*ft_free_str(char **str)
 {
-	if (!*str)
-		return (0);
-	free(*str);
+	if (*str)
+		free(*str);
 	*str = NULL;
 	return (0);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*stash;
+	static char	*stash = NULL;
 	char		*str;
 	int			ncl;
 
@@ -60,21 +63,32 @@ char	*get_next_line(int fd)
 	ft_free_str(&str);
 	return (ft_extract_clear(&stash));
 }
+
+/* #include <fcntl.h>
+#include <stdio.h>
 int    main(void)
 {
-    char    *content;
-    int fd = open("cat.txt", O_RDONLY);
+     char    *content;
+    int fd = open("text.txt", O_RDONLY);
     
-    // content = get_next_line(fd);
-    // while (ft_strlen(content))
-    // {
-    //     printf("%s", content);
-    //     free(content);
-    //     content = get_next_line(fd);
-    // }
-    // free(content);
+   content = get_next_line(fd);
+     while (ft_strlen_gnl(content))
+    { 
+		printf("content : %s", content);
+        free(content);
+        content = get_next_line(fd);
+     } 
+	printf("content : %s\n", content);
+    free(content);
+    content = get_next_line(fd);
+	printf("content : %s\n", content);
+    free(content);
+    content = get_next_line(fd);
+	printf("content : %s", content);
+    free(content);
+	content = get_next_line(fd);
     
-    while(1)
+	while(1)
     {
         content = get_next_line(fd);
         if(!content)
@@ -88,4 +102,4 @@ int    main(void)
         free(content);
     close(fd);
     return (0);
-}
+} */
