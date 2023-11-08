@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:49:32 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 11:03:21 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 12:45:36 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_extract_clear(char **stash)
 int	ft_free_str(char **str)
 {
 	if (!*str)
-		return (NULL);
+		return (0);
 	free(*str);
 	*str = NULL;
 	return (0);
