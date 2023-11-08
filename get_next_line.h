@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:50:15 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 11:03:23 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 12:53:47 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # endif
 
 char		*get_next_line(int fd);
-int			ft_strchr_gnl(char *s, int c);
 char		*ft_strjoin_gnl(char *s1, char *s2);
 char		*ft_extract_clear(char **stash);
-int			ft_free_str(char **str);
-static char	*ft_strndup_gnl(const char *s1, int l);
+char		*ft_free_str(char **str);
+char		*ft_strndup_gnl(char *s1, int l);
 int			ft_strlen_gnl(char *str);
+int			ft_strchr_gnl(char *s, int c);
 
 #endif

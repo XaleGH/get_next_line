@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:10:08 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 11:03:22 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 12:53:01 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	return (str);
 }
 
-static char	*ft_strndup_gnl(const char *s1, int l)
+char	*ft_strndup_gnl(char *s1, int l)
 {
 	char	*str;
 	int		i;
