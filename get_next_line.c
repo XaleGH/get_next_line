@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:49:32 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 10:56:29 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 11:03:21 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_extract_clear(char **stash)
 {
 	char	*new;
 	char	*temp;
-	int	i;
+	int		i;
 
 	i = -1;
 	temp = *stash;
@@ -27,6 +27,7 @@ char	*ft_extract_clear(char **stash)
 	free(temp);
 	return (new);
 }
+
 int	ft_free_str(char **str)
 {
 	if (!*str)
@@ -35,12 +36,13 @@ int	ft_free_str(char **str)
 	*str = NULL;
 	return (0);
 }
+
 char	*get_next_line(int fd)
 {
 	static char	*stash;
 	char		*str;
 	int			ncl;
-	
+
 	ncl = 1;
 	if (BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0 || fd < 0)
 		return (ft_free_str(&stash));

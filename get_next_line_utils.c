@@ -6,7 +6,7 @@
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:10:08 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/08 10:56:18 by asaux            ###   ########.fr       */
+/*   Updated: 2023/11/08 11:03:22 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_strchr_gnl(char *s, int c)
 			return (1);
 	return (0);
 }
+
 char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*str;
@@ -44,6 +45,7 @@ char	*ft_strjoin_gnl(char *s1, char *s2)
 	str[i + j] = '\0';
 	return (str);
 }
+
 static char	*ft_strndup_gnl(const char *s1, int l)
 {
 	char	*str;
@@ -58,6 +60,7 @@ static char	*ft_strndup_gnl(const char *s1, int l)
 	str[i] = '\0';
 	return (str);
 }
+
 int	ft_strlen_gnl(char *str)
 {
 	int	i;
