@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asaux <asaux@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 14:10:08 by asaux             #+#    #+#             */
-/*   Updated: 2023/11/09 11:01:28 by asaux            ###   ########.fr       */
+/*   Created: 2023/11/08 19:08:56 by asaux             #+#    #+#             */
+/*   Updated: 2023/11/08 19:26:25 by asaux            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strlen_gnl(char *str)
 {
@@ -28,8 +28,6 @@ int	ft_strchr_gnl(char *s, int c)
 
 	i = -1;
 	if (!s)
-		return (0);
-	if (!c)
 		return (0);
 	while (s[++i])
 		if (s[i] == c)
